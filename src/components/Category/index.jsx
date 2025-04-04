@@ -6,41 +6,14 @@ import constant from '@/src/config/constant'
 import CategoryBtn from '../CategoryBtn'
 
 
-function Category({handleCategory}) {
-    const [category, setCategory] = useState([])    
-    const [error, setError] = useState(null);
-    const {request} = useApi()
-    const [selectedCategory, setSelectedCategory] = useState("AI");
-
-
-    useEffect(()=>{
-       handleCategory(selectedCategory);
-    }, [selectedCategory])
-    useEffect(()=>{
-        const fetchDashboardData = async () => {
-            try {
-               request(constant.CATEGORY_END_POINT, "GET")
-               .then((res)=>{
-                setCategory(res);
-               })
-             
-            } catch (err) {
-              setError(err.message);
-            }
-          };
-            fetchDashboardData();
-    }, [])
-
-    if (error) {
-        return <p className="text-red-500">Error: {error}</p>;
-      }
+function Category({categories, selectedCategory, handleFunction}) {
   return (
 
-    <div className=' py-2 w-full '>
-      <div className="mx-auto  flex flex-wrap justify-center">
-      { category && category.result &&
-        category.result.map((itm ,index)=>{
-            return <CategoryBtn key={index} category={itm} selectedCategory = {selectedCategory} onClick={()=>setSelectedCategory(itm)}/>
+    <div className=' pb-2 w-full '>
+      <div className="mx-auto  flex flex-wrap justify-center border-b border-gray-200 pb-2">
+      { categories && categories.length>0 &&
+        categories.map((itm ,index)=>{
+            return <CategoryBtn key={index} category={itm} selectedCategory = {selectedCategory} handleFunction={()=>handleFunction(itm)}/>
         })
       }
       </div>

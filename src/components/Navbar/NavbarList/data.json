@@ -1,0 +1,24 @@
+{
+    "navlist":[
+        {
+            "title":"home",
+            "path":"/",
+            "icon":"home"
+        },
+        {
+            "title":"archive",
+            "path":"/archive",
+            "icon":"archive"
+        },
+        {
+            "title":"about",
+            "path":"/about",
+            "icon":"about"
+        },
+        {
+            "title":"feedback",
+            "path":"/feedback",
+            "icon":"feedback"
+        }
+    ]
+}

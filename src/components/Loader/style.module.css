@@ -1,0 +1,29 @@
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5); /* Optional: dim the background */
+  border-radius: 50%; /* Optional: circular background for the loader */
+  padding: 20px;
+}
+
+.loader {
+  width: 50px;  /* Adjust the size of the loader */
+  height: 50px; /* Adjust the size of the loader */
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    
