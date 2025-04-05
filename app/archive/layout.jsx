@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ArchiveLayout ({children}) {
     return (
-      <div>
+      <div className='min-h-[542px]'>
         {children}
       </div>
     )

@@ -9,7 +9,7 @@ function Navbar() {
       <div className="logo pointer-cursor rounded  flex-start">
         <Link href="/">
           <img
-            src="/images/logo/big4bytes.png"
+            src="/images/logo/big4bytesLogo.png"
             alt=""
             width="45px"
             height="45px"

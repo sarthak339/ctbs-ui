@@ -5,7 +5,7 @@ import React from 'react'
 
 function page() {
   return (
-    <div>
+    <div className='min-h-screen w-full border border-red-500'>
       archive
     </div>
   )
