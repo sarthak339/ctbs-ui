@@ -13,6 +13,9 @@ export const fetchBlogs = createAsyncThunk(
       if (!response.ok) {
         throw new Error(`Failed to fetch blogs: ${response.statusText}`);
       }
+      if (response.status === 204) {
+        return [];
+      }
 
       const data = await response.json();
       return data.result;

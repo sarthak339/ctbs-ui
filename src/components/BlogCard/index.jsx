@@ -15,7 +15,7 @@ export default function BlogCard({ blog }) {
         </div>
         <p className="mt-2 text-sm text-gray-700 ">Source: <span className="font-bold">{blog.blog}</span> </p>
         <Link
-          href={blog.link}
+          href={blog?.link || "#"}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-3 inline-block text-blue-600 hover:underline cursor-pointer"

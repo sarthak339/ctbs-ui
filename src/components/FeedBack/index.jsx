@@ -24,11 +24,22 @@ export default function FeedBack() {
 
   const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
-      const res = await request(constant.FEEDBACK_FORM_END_POINT, 'POST',values);
-
+      const res = await request(
+        constant.FEEDBACK_FORM_END_POINT,
+        "POST",
+        values
+      );
+      const { status, message } = res || null;
+      if (status === 400) {
+        toast.error(message || "Something went wrong. Please try again.");
+      }
       if (!res) throw new Error("Failed to submit");
-
-      toast.success("🙏 Thank you so much for your valuable feedback. We truly appreciate your time and support.");
+      if(res.status===200){
+        toast.success(
+          "🙏 Thank you so much for your valuable feedback. We truly appreciate your time and support."
+        );
+      }
+    
       resetForm();
       setTimeout(() => {
         router.push("/");
