@@ -6,9 +6,9 @@
             "icon":"home"
         },
         {
-            "title":"archive",
-            "path":"/archive",
-            "icon":"archive"
+            "title":"Tech News",
+            "path":"/tech-news",
+            "icon":"tech-news"
         },
         {
             "title":"about",

@@ -2,11 +2,12 @@
 
 
 import React from 'react'
+import TechNews from '@/src/components/TechNews'
 
 function page() {
   return (
-    <div className='min-h-screen w-full border border-red-500'>
-      archive
+    <div className='min-h-screen w-full'>
+      <TechNews/>
     </div>
   )
 }
