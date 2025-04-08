@@ -2,6 +2,7 @@ import React from "react";
 import "./style.module.css";
 import Link from "next/link";
 import NavbarList from "./NavbarList";
+import SignInButton from "../SignInBtn";
 function Navbar() {
   return (
     <>
@@ -23,11 +24,7 @@ function Navbar() {
         </h1>
       </div>
       <div className="flex  items-center justify-center">
-        <Link href="/">
-          <h1 className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition duration-300 ease-in-out">
-            4Bytes
-          </h1>
-        </Link> 
+        <SignInButton/>
       </div>
     </div>
     <NavbarList />
