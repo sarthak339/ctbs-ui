@@ -4,4 +4,4 @@ logs
 *.log
 Dockerfile
 .dockerignore
-.env
+.env.local

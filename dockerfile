@@ -10,10 +10,10 @@ RUN npm install
 COPY . .
 
 # Define build-time variable
-ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_BASE_URL_CORE_SERVER
 
 # Set it as environment variable so Next.js sees it
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_BASE_URL_CORE_SERVER=$NEXT_PUBLIC_BASE_URL_CORE_SERVER
 
 
 
