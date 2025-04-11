@@ -6,10 +6,13 @@ import { Poppins } from "next/font/google";
 import Providers from "@/src/components/Providers";
 
 export const metadata = {
-  title: "Big4Bytes",
-  description: "My Next.js App",
+  title: 'Big4Bytes',
+  description: 'Big4Bytes brings together top tech blogs in one place.',
   icons: {
-    icon: "favicon/favicon.ico", // path relative to /public
+    icon: "favicon/favicon.ico", 
+  },
+  other: {
+    'google-site-verification': 'uNsBlZNuSE8qQ0L-yp_JBF4_amWpPjwenWganKh_REQ',
   },
 };
 

@@ -10,10 +10,10 @@ const TechNews = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(resetTechNews());
-    dispatch(fetchTechNews(1));
-    setPage(1);
-  }, [dispatch]);
+    // dispatch(resetTechNews());
+    dispatch(fetchTechNews(page));
+    setPage(page);
+  }, [dispatch, page]);
 
   // Infinite scroll handler
   const handleScroll = useCallback(() => {

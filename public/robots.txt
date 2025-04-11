@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://big4bytes.com
+
+# Sitemaps
+Sitemap: https://big4bytes.com/sitemap.xml
