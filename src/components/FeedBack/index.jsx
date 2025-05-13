@@ -53,7 +53,7 @@ export default function FeedBack() {
   };
 
   return (
-    <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-md mt-10">
+    <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-md mt-10 ">
       <h2 className="text-2xl font-bold mb-6 text-center">Submit Feedback</h2>
 
       <Formik

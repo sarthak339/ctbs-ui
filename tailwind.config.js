@@ -12,7 +12,8 @@ const config = {
           customRed: '#ef4444',   // Custom Red color
         },
         backgroundColor: {
-          customFooter:"#0B0B0C"
+          customFooter:"#0B0B0C", 
+          customBG : "#1f44bf"
         },
       },
     },

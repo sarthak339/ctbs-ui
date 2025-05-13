@@ -6,7 +6,7 @@ import TechNews from '@/src/components/TechNews'
 
 function page() {
   return (
-    <div className='min-h-screen w-full'>
+    <div className='min-h-screen w-full mt-[72px] bg-gray-100'>
       <TechNews/>
     </div>
   )

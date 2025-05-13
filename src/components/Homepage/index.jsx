@@ -1,75 +1,86 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import "./style.module.css";
-import Category from "../Category";
+import styles from "./style.module.css";
+import Category from "../CuratedTechBlog/Category";
 import BlogScreen from "../BlogsScreen";
-import CompanyCategory from "../CompanyCategory";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { fetchBlogs } from "../../features/blogSlice";
 import { fetchCompanyCategories } from "@/src/features/companyCategoriesSlice";
+import CuratedTechBlog from "../CuratedTechBlog";
+import ArrowBackSharpIcon from "@mui/icons-material/WestSharp";
+import EastSharpIcon from "@mui/icons-material/EastSharp";
+import { CollectionsOutlined } from "@mui/icons-material";
+import { useSelection } from "@/src/context/selectionContext";
 
 function HomePage() {
-  const [selectedCategory, setSelectedCategory] = useState("AI");
-  const [defaultCompany, setDefaultCompany] = useState("ALL");
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const dispatch = useDispatch();
-  const {
-    items: categories,
-    status: categoryStatus,
-    error,
-  } = useSelector((state) => state.categories);
+    const { selectedCategory, selectedCompany} = useSelection();
   const { items: blogs, status: blogStatus } = useSelector(
     (state) => state.blogs
   );
   const { items: companyCategories, status: companyCategoryStatus } =
     useSelector((state) => state.companyList);
 
-  // fetch categoires
   useEffect(() => {
-    if (categoryStatus === "idle") {
-      dispatch(fetchCategories());
+    if (companyCategoryStatus === "idle") {
+      dispatch(fetchCompanyCategories());
     }
-  }, [categoryStatus, dispatch]);
+  }, []);
+  useEffect(()=>{
+    if((selectedCategory || selectedCompany) && isMobileView){
+      setIsOpen(false); 
+    }
+     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [selectedCategory, selectedCompany])
+  useEffect(()=>{
+      const handleResize = () => {
+          if (window.innerWidth <= 1000) {
+              setIsOpen(false); 
+              setIsMobileView(true);
+          } 
+          else {
+            setIsMobileView(false);
+          }
+      };
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => {
+          window.removeEventListener("resize", handleResize);
+      };
+  }, []);
 
   useEffect(() => {
     if (
-      categoryStatus === "succeeded" &&
-      categories.length > 0 &&
+      companyCategoryStatus === "succeeded" &&
       selectedCategory &&
-      defaultCompany
+      selectedCompany
     ) {
-      const defaultCat = selectedCategory;
-      dispatch(fetchBlogs({ category: selectedCategory, company: defaultCompany }));
-      dispatch(fetchCompanyCategories(selectedCategory));
-      
+      dispatch(
+        fetchBlogs({ category: selectedCategory, company: selectedCompany })
+      );
     }
-  }, [categoryStatus, categories, selectedCategory,defaultCompany, dispatch]);
-
-  const handleCategoryClick = (categoryName) => {
-    setSelectedCategory(categoryName);
-    setDefaultCompany("ALL");
+  }, [companyCategoryStatus, selectedCategory, selectedCompany , dispatch]);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
   };
 
-  const handleCompanyCategory = (companyName) => {
-    setDefaultCompany(companyName);
-
-  }
-
   return (
-    <div className="w-full min-h-screen  p-4">
-      <Category
-        categories={categories}
-        selectedCategory={selectedCategory}
-        handleFunction={handleCategoryClick}
-      />
-      <CompanyCategory
-        companyList={companyCategories}
-        selectedCategory={defaultCompany}
-        handleCompanyCategory={handleCompanyCategory}
-      />
-      <div className="w-full h-full">
-        <BlogScreen blogs={blogs} status={blogStatus} />
+    <div className=" w-full min-h-screen mt-[72px] bg-gray-100">
+      <div className=" w-full min-h-full  flex">
+       {isOpen &&  <div className={`fixed h-full   bg-gray-200  ${isOpen ? "w-[20%] block" : "w-0 hide"} ${isMobileView ? "w-[80%]" : ""} transition-all duration-300 overflow-y-auto z-100`}>
+          {isOpen && <CuratedTechBlog companyList={companyCategories} />}
+        </div>
+}
+          <button onClick={toggleSidebar} className={`fixed p-2 transition-all bg-gray-400 hover:bg-gray-500 cursor-pointer  ${  isOpen ? "left-[20%]" : "left-0"} ${isMobileView && isOpen ? "left-[80%]" : ""}  top-[82px]`}>
+            <span className="material-icons text-white"> {isOpen ? <ArrowBackSharpIcon /> : <EastSharpIcon />} </span>
+          </button>
+        <div className={`${isOpen ? "ml-[23%]" : "ml-[2%] mx-auto"}  w-full h-full flex flex-col items-center justify-center  overflow-y-auto`}>
+          <BlogScreen blogs={blogs} status={blogStatus} selectedCategory = {selectedCategory} selectedCompany = {selectedCompany} />
+        </div>
       </div>
     </div>
   );

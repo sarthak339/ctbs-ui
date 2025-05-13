@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryBtn from '../CategoryBtn'
+import CategoryBtn from '../../CategoryBtn'
 
 
 function CompanyCategory({companyList, selectedCategory,  handleCompanyCategory}) {

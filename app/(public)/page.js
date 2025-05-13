@@ -6,7 +6,7 @@ import HomePage from '@/src/components/Homepage';
 
 export default function Home() {
   return (
-    <div className=''>
+    <div className='min-h-screen'>
       <HomePage />
     </div>
   );

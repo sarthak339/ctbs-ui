@@ -23,7 +23,7 @@ const targetAudiences = [
 
 function About() {
   return (
-    <div className="min-h-[542px] w-full mt-3">
+    <div className="min-h-[542px]  w-full">
       <div className="flex flex-col lg:w-[60%] md:w-[80%] w-full mx-auto h-full  px-2">
         <div className="heading lg:w-[80%] w-full mx-auto px-4 lg:px-2 py-2 mb-2">
           <h1 className="font-bold text-3xl">About Big 4 Bytes</h1>

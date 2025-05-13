@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogList from '../BlogsList'
+import BlogList from '../../BlogsList'
 
 function CompanyCategorization({comp}) {
   return (

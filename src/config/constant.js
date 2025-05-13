@@ -1,7 +1,9 @@
 module.exports = {
   CATEGORY_END_POINT: "/api/category",
   BLOGS_LIST_END_POINT: "/api/blogs",
-  COMPANY_LIST_END_POINT: "/api/company",
+  COMPANY_LIST_END_POINT: "/api/company/v2",
   FEEDBACK_FORM_END_POINT: "/api/feedback",
-  TECH_NEWS_LIST_END_POINT:"/api/daily/News"
+  TECH_NEWS_LIST_END_POINT:"/api/daily/News",
+  SIGN_UP_END_POINT:"/api/auth/signup",
+  LOGIN_END_POINT:"/api/auth/login",
 };
