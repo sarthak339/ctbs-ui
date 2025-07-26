@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import HomePage from '@/src/components/Homepage';
+import HomePage from '@/src/components/NewHomePage';
 
 export default function Home() {
   return (

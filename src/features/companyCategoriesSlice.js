@@ -5,7 +5,7 @@ import CONSTANT from '@/src/config/constant';
 
 export const fetchCompanyCategories = createAsyncThunk(
   'companyCategory/fetchCompanyCategories',
-  async (_,{ rejectWithValue }) => {
+  async (category,{ rejectWithValue }) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_CORE_SERVER}${CONSTANT.COMPANY_LIST_END_POINT}`);
       if (!response.ok) {
