@@ -1,0 +1,16 @@
+{
+    "footbarlist": {
+        "container1": [
+            "About",
+            "Privacy",
+            "Contact Us",
+            "Term of Services"
+        ],
+        "container2": [
+            "Pricing",
+            "Blogs",
+            "FAQ",
+            "Help"
+        ]
+    }
+}

@@ -1,11 +1,14 @@
-import React from 'react'
-import "./style.module.css"
+import React from "react";
+import "./style.module.css";
+import Link from "next/link";
+import NavbarList from "./NavbarList";
+import SignInButton from "../UI/SignInBtn";
 function Navbar() {
   return (
-    <div>
-      Navbar
-    </div>
-  )
+    <>
+    <NavbarList />
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -22,6 +22,9 @@ const useApi =  () => {
       if(response.status === 204){
         return null;
       }
+      if(response.status===400){
+        return await response.json();
+      }
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
