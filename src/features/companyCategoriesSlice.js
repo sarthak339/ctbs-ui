@@ -7,7 +7,7 @@ export const fetchCompanyCategories = createAsyncThunk(
   'companyCategory/fetchCompanyCategories',
   async (category,{ rejectWithValue }) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_CORE_SERVER}${CONSTANT.COMPANY_LIST_END_POINT}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_CORE_SERVER}${CONSTANT.COMPANY_LIST_END_POINT}?category=${category}`);
       if (!response.ok) {
         throw new Error('Failed to fetch companies');
       }

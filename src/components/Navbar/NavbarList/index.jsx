@@ -14,6 +14,7 @@ function NavbarList() {
   const handleMobleView = () => {
     setActivateMobileGrid(!activateMobileGrid);
   };
+
   const handleMobileGrid = (status) => {
     setActivateMobileGrid(status);
   };
@@ -76,7 +77,7 @@ function NavbarList() {
         {!activateMobileView && (
           <div className="hidden md:flex ml-4">
             <Link href="/subscribe">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:cursor-pointer transition duration-200">
                 Subscribe
               </button>
             </Link>
@@ -85,7 +86,10 @@ function NavbarList() {
 
         {/* Hamburger (Mobile) */}
         {activateMobileView && (
-          <HamburgerMenu handleMobleView={handleMobleView} />
+          <HamburgerMenu
+            handleMobleView={handleMobleView}
+            open={activateMobileGrid} // <-- pass state here
+          />
         )}
 
         {/* Mobile Menu Grid */}

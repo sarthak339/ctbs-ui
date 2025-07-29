@@ -12,8 +12,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-*{
-  box-sizing:border-box; 
+* {
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,15 +37,39 @@ body {
   scrollbar-width: none;
 }
 
-
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   overflow-x: auto;
-  overflow-y: hidden;        /* hides vertical scroll */
+  overflow-y: hidden; /* hides vertical scroll */
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* thinner scrollbar */
+  height: 6px; /* for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* light track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3229ebff, #3b82f6); /* gradient thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3229ebff, #2563eb);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4f46e5 #f1f1f1;
+}

@@ -1,19 +1,18 @@
 "use client";
 
-
-function CategoryList({ categoryDisplayName }) {
-
-
+function CategoryList({ categoryDisplayName, selectedCompany }) {
   return (
-    <div className="">
-      {/* Styled Heading */}
-      <div className="flex items-center gap-3 mb-3">
-        <h1 className="text-2xl font-bold text-gray-800">
-          <span className="text-grey-600">{categoryDisplayName}</span>
+    <div className="px-4 sm:px-6 lg:px-8">
+      {/* Responsive heading */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 mb-4">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 flex flex-wrap items-center gap-2">
+          <span className="text-gray-800">{categoryDisplayName}</span>
+          <span className="hidden sm:inline-block h-5 border-l-2 border-gray-400"></span>
+          <span className="text-gray-500">{selectedCompany}</span>
         </h1>
       </div>
 
-      {/* You can render blogs here based on selectedCompany and categoryDisplayName */}
+      {/* Render content below */}
     </div>
   );
 }

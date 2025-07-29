@@ -20,6 +20,8 @@ const filterSlice = createSlice({
       state.selectedCategory = "";
       state.selectedCompany = "";
     },
+
+    
   },
 });
 
